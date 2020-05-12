@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresPainter", "interview_task_win_form\FiguresPainter.csproj", "{4ADC1427-1752-4BFF-A1D9-70B72C068299}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresPainter", "InterviewTask\FiguresPainter.csproj", "{4ADC1427-1752-4BFF-A1D9-70B72C068299}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
