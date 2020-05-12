@@ -1,6 +1,6 @@
-﻿namespace interview_task_win_form
+﻿namespace FiguresDrawer
 {
-    partial class Form1
+    partial class FiguresDrawer
     {
         /// <summary>
         /// Required designer variable.
