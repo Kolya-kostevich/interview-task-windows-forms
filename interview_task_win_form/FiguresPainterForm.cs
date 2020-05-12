@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace FiguresDrawer
+namespace FiguresPainter
 {
     abstract class Figure
     {
@@ -65,9 +65,9 @@ namespace FiguresDrawer
         }
     }
 
-    public partial class FiguresDrawer : Form
+    public partial class FiguresPainter : Form
     {
-        public FiguresDrawer()
+        public FiguresPainter()
         {
             InitializeComponent();
         }

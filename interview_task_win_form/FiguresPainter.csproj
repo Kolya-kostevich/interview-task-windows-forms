@@ -46,14 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FiguresDrawer.cs" />
-    <Compile Include="FiguresDrawer.Designer.cs">
-      <DependentUpon>FiguresDrawer.cs</DependentUpon>
+    <Compile Include="FiguresPainterForm.cs" />
+    <Compile Include="FiguresPainterForm.Designer.cs">
+      <DependentUpon>FiguresPainterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FiguresDrawer.resx">
-      <DependentUpon>FiguresDrawer.cs</DependentUpon>
+    <EmbeddedResource Include="FiguresPainterForm.resx">
+      <DependentUpon>FiguresPainterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
