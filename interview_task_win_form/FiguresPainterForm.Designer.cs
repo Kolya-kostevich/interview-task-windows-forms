@@ -1,6 +1,6 @@
-﻿namespace FiguresDrawer
+﻿namespace FiguresPainter
 {
-    partial class FiguresDrawer
+    partial class FiguresPainter
     {
         /// <summary>
         /// Required designer variable.

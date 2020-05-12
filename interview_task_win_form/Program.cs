@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FiguresDrawer
+namespace FiguresPainter
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace FiguresDrawer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FiguresDrawer());
+            Application.Run(new FiguresPainter());
         }
     }
 }
