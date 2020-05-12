@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace interview_task_win_form
+namespace FiguresDrawer
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace interview_task_win_form
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FiguresDrawer());
         }
     }
 }

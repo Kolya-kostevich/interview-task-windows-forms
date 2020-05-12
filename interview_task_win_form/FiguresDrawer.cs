@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace interview_task_win_form
+namespace FiguresDrawer
 {
     abstract class Figure
     {
@@ -65,9 +65,9 @@ namespace interview_task_win_form
         }
     }
 
-    public partial class Form1 : Form
+    public partial class FiguresDrawer : Form
     {
-        public Form1()
+        public FiguresDrawer()
         {
             InitializeComponent();
         }
