@@ -1,67 +1,133 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace FiguresPainter
 {
-    abstract class Figure
+    interface IDraw
     {
-        public abstract void DrawFigure(int x, int y, Graphics gObject, Pen pen);
-        public static void DrawLine(int x1, int y1, int x2, int y2, Graphics gObject, Pen pen)
+        void Draw();
+    }
+
+    class Line : IDraw
+    {
+        private int _x1;
+        private int _y1;
+        private int _x2;
+        private int _y2;
+        private LineCap _startArrow = LineCap.Flat;
+        private LineCap _endArrow = LineCap.Flat;
+        private DashStyle _lineStyle = DashStyle.Solid;
+        private Graphics _graph;
+        private Pen _pen;
+
+        public Line (int x1, int y1, int x2, int y2, Graphics graph, Color penColor, int penWidth, LineCap? startArrow = null, LineCap? endArrow = null, DashStyle? lineStyle = null)
         {
-            gObject.DrawLine(pen, x1, y1, x2, y2);
+            Brush brushForPen = new SolidBrush(penColor);
+
+            this._x1 = x1;
+            this._y1 = y1;
+            this._x2 = x2;
+            this._y2 = y2;
+
+            this._startArrow = startArrow ?? this._startArrow;
+            this._endArrow = endArrow ?? this._endArrow;
+            this._lineStyle = lineStyle ?? this._lineStyle;
+            this._graph = graph;
+
+            this._pen = new Pen(brushForPen, penWidth);
+            this._pen.StartCap = this._startArrow;
+            this._pen.EndCap = this._endArrow;
+            this._pen.DashStyle = this._lineStyle;
         }
 
+        public void Draw()
+        {
+            this._graph.DrawLine(this._pen, this._x1, this._y1, this._x2, this._y2);
+        }
+    }
+   
+    public abstract class Figure : IDraw
+    {
+        protected static float PenWidthDefault = 8.0f;
+
+        protected int X;
+        protected int Y;
+        protected Graphics Graph;
+        protected Pen Pen;
+
+        public Figure(int x, int y, Graphics graph, Color penColor, float? penWidth)
+        {
+            float penWidthCalculated = penWidth.HasValue && penWidth > 0 ? penWidth.Value : PenWidthDefault;
+
+            Brush brushForPen = new SolidBrush(penColor);
+
+            this.X = x;
+            this.Y = y;
+            this.Graph = graph;
+            this.Pen = new Pen(brushForPen, penWidthCalculated);
+        }
+
+        public abstract void Draw();
     }
 
     class Rhombus : Figure
     {
-        private static int width = 50;
-        private static int height = 50;
+        private static int _width = 50;
+        private static int _height = 50;
 
-        public override void DrawFigure(int x, int y, Graphics gObject, Pen pen)
+        public Rhombus(int x, int y, Graphics graph, Color penColor, int penWidth) : base(x, y, graph, penColor, penWidth) { }
+
+        public override void Draw()
         {
-            gObject.DrawLine(pen, x, y, (x + Rhombus.width), (y - Rhombus.height));
-            gObject.DrawLine(pen, (x + Rhombus.width), (y - Rhombus.height), (x + (Rhombus.width * 2)), y);
-            gObject.DrawLine(pen, x, y, (x + Rhombus.width), (y + Rhombus.height));
-            gObject.DrawLine(pen, (x + Rhombus.width), (y + Rhombus.height), (x + (Rhombus.width * 2)), y);
+            this.Graph.DrawLine(this.Pen, this.X, this.Y, (this.X + Rhombus._width), (this.Y - Rhombus._height));
+            this.Graph.DrawLine(this.Pen, (this.X + Rhombus._width), (this.Y - Rhombus._height), (this.X + (Rhombus._width * 2)), this.Y);
+            this.Graph.DrawLine(this.Pen, this.X, this.Y, (this.X + Rhombus._width), (this.Y + Rhombus._height));
+            this.Graph.DrawLine(this.Pen, (this.X + Rhombus._width), (this.Y + Rhombus._height), (this.X + (Rhombus._width * 2)), this.Y);
         }
     }
 
     class Square : Figure
     {
-        private static int widthHeight = 60;
+        private static int _widthHeight = 60;
 
-        public override void DrawFigure(int x, int y, Graphics gObject, Pen pen)
+        public Square(int x, int y, Graphics graph, Color penColor, int penWidth) : base(x, y, graph, penColor, penWidth) { }
+
+        public override void Draw()
         {
-            gObject.DrawLine(pen, x, y, (x + Square.widthHeight), y);
-            gObject.DrawLine(pen, (x + Square.widthHeight), y, (x + Square.widthHeight), (y + Square.widthHeight));
-            gObject.DrawLine(pen, (x + Square.widthHeight), (y + Square.widthHeight), x, (y + Square.widthHeight));
-            gObject.DrawLine(pen, x, (y + Square.widthHeight), x, y);
+            this.Graph.DrawLine(this.Pen, this.X, this.Y, (this.X + Square._widthHeight), this.Y);
+            this.Graph.DrawLine(this.Pen, (this.X + Square._widthHeight), this.Y, (this.X + Square._widthHeight), (this.Y + Square._widthHeight));
+            this.Graph.DrawLine(this.Pen, (this.X + Square._widthHeight), (this.Y + Square._widthHeight), this.X, (this.Y + Square._widthHeight));
+            this.Graph.DrawLine(this.Pen, this.X, (this.Y + Square._widthHeight), this.X, this.Y);
         }
     }
 
     class Triangle : Figure
     {
-        private static int width = 60;
-        private static int height = 60;
+        private static int _width = 60;
+        private static int _height = 60;
 
-        public override void DrawFigure(int x, int y, Graphics gObject, Pen pen)
+        public Triangle(int x, int y, Graphics graph, Color penColor, int penWidth) : base(x, y, graph, penColor, penWidth) { }
+
+        public override void Draw()
         {
-
-            gObject.DrawLine(pen, x, y, (x + Triangle.width), (y - Triangle.height));
-            gObject.DrawLine(pen, (x + Triangle.width), (y - Triangle.height), (x + (Triangle.width * 2)), y);
-            gObject.DrawLine(pen, x, y, (x + (Triangle.width * 2)), y);
+            this.Graph.DrawLine(this.Pen, this.X, this.Y, (this.X + Triangle._width), (this.Y - Triangle._height));
+            this.Graph.DrawLine(this.Pen, (this.X + Triangle._width), (this.Y - Triangle._height), (this.X + (Triangle._width * 2)), this.Y);
+            this.Graph.DrawLine(this.Pen, this.X, this.Y, (this.X + (Triangle._width * 2)), this.Y);
         }
     }
 
     class Circle : Figure
     {
-        private static int width = 45;
-        private static int height = 45;
+        private static int _width = 45;
+        private static int _height = 45;
 
-        public override void DrawFigure(int x, int y, Graphics gObject, Pen pen)
+        public Circle(int x, int y, Graphics graph, Color penColor, int penWidth) : base(x, y, graph, penColor, penWidth) { }
+
+        public override void Draw()
         {
-            gObject.DrawEllipse(pen, x, y, Circle.width, Circle.height);
+            this.Graph.DrawEllipse(this.Pen, this.X, this.Y, Circle._width, Circle._height);
         }
     }
 
@@ -76,55 +142,26 @@ namespace FiguresPainter
         {
             Graphics gObject = canvas.CreateGraphics();
 
-            Brush redBrush = new SolidBrush(Color.Red);
+            Triangle triangle1 = new Triangle(500, 95, gObject, Color.Red, 8);
+            Triangle triangle2 = new Triangle(100, 350, gObject, Color.Red, 8);
+            Circle circle1 = new Circle(450, 225, gObject, Color.Red, 8);
+            Square square1 = new Square(50, 50, gObject, Color.Red, 8);
+            Rhombus rhombus1 = new Rhombus(630, 250, gObject, Color.Red, 8);
+            Circle circle2 = new Circle(630, 380, gObject, Color.Red, 8);
 
-            /* For Drawing Figures */
+            Line line1 = new Line(110, 75, 445, 235, gObject, Color.Red, 8, LineCap.ArrowAnchor, LineCap.ArrowAnchor);
+            Line line2 = new Line(550, 105, 480, 215, gObject, Color.Red, 8, LineCap.ArrowAnchor, null , DashStyle.Dot);
+            Line line3 = new Line(80, 110, 120, 320, gObject, Color.Red, 8, LineCap.ArrowAnchor, LineCap.ArrowAnchor, DashStyle.Dash);
+            Line line4 = new Line(500, 245, 600, 250, gObject, Color.Red, 8, LineCap.ArrowAnchor, null, DashStyle.Dot);
+            Line line5 = new Line(210, 320, 615, 260, gObject, Color.Red, 8, LineCap.ArrowAnchor, null, DashStyle.DashDotDot);
 
-            Pen redPen = new Pen(redBrush, 8);
 
-            /* End For Drawing Figures */
+            IDraw[] figuresAndLines = new IDraw[] { triangle1, triangle2, circle1, square1, rhombus1, circle2, line1, line2, line3, line4, line5 };
 
-            /* For Drawing Lines */
-
-            Pen redLineDoubleArrowsPen = new Pen(redBrush, 8);
-            Pen redLineDottedsStartArrowPen = new Pen(redBrush, 8);
-            Pen redLineDashStartArrowPen = new Pen(redBrush, 8);
-            Pen redLineStartArrowPen = new Pen(redBrush, 8);
-
-            redLineDoubleArrowsPen.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-            redLineDoubleArrowsPen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-
-            redLineDottedsStartArrowPen.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-            redLineDottedsStartArrowPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-
-            redLineDashStartArrowPen.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-            redLineDashStartArrowPen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-            redLineDashStartArrowPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-
-            redLineStartArrowPen.StartCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
-
-            /* End For Drawing Lines */
-
-            Triangle triangle1 = new Triangle();
-            Triangle triangle2 = new Triangle();
-            Circle circle1 = new Circle();
-            Square square1 = new Square();
-            Rhombus rhombus1 = new Rhombus();
-            Circle circle2 = new Circle();
-
-            triangle1.DrawFigure(500, 95, gObject, redPen);
-            triangle2.DrawFigure(100, 350, gObject, redPen);
-            circle1.DrawFigure(450, 225, gObject, redPen);
-            square1.DrawFigure(50, 50, gObject, redPen);
-            rhombus1.DrawFigure(630, 250, gObject, redPen);
-            circle2.DrawFigure(630, 380, gObject, redPen);
-
-            Figure.DrawLine(110, 75, 445, 235, gObject, redLineDoubleArrowsPen);
-            Figure.DrawLine(550, 105, 480, 215, gObject, redLineDottedsStartArrowPen);
-            Figure.DrawLine(80, 110, 120, 320, gObject, redLineDashStartArrowPen);
-            Figure.DrawLine(500, 245, 600, 250, gObject, redLineDottedsStartArrowPen);
-            Figure.DrawLine(210, 320, 615, 260, gObject, redLineStartArrowPen);
-
+            foreach(var element in figuresAndLines)
+            {
+                element.Draw();
+            }
         }
     }
 }
