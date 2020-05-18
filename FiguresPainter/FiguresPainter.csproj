@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FiguresPainterForm.cs" />
+    <Compile Include="FiguresPainterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FiguresPainterForm.Designer.cs">
       <DependentUpon>FiguresPainterForm.cs</DependentUpon>
     </Compile>
@@ -77,6 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FiguresPainterLibrary\FiguresPainterLibrary.csproj">
+      <Project>{1562dd4f-48f8-4f30-b5ad-01e6519cf91c}</Project>
+      <Name>FiguresPainterLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
