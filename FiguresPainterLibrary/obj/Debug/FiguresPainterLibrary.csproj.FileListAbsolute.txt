@@ -1,6 +1,10 @@
-D:\interview_task\interview-task-windows-forms\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
-D:\interview_task\interview-task-windows-forms\ConsoleApp1\bin\Debug\ConsoleApp1.exe
-D:\interview_task\interview-task-windows-forms\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
-D:\interview_task\interview-task-windows-forms\ConsoleApp1\obj\Debug\FiguresPainterLibrary.csprojAssemblyReference.cache
-D:\interview_task\interview-task-windows-forms\ConsoleApp1\obj\Debug\ConsoleApp1.exe
-D:\interview_task\interview-task-windows-forms\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\bin\Debug\FiguresPainterLibrary_.dll
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\bin\Debug\FiguresPainterLibrary_.pdb
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\obj\Debug\FiguresPainterLibrary.csprojAssemblyReference.cache
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\obj\Debug\FiguresPainterLibrary_.dll
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\obj\Debug\FiguresPainterLibrary_.pdb
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary\bin\Debug\FiguresPainterLibrary_.dll
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary\bin\Debug\FiguresPainterLibrary_.pdb
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary\obj\Debug\FiguresPainterLibrary.csprojAssemblyReference.cache
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary\obj\Debug\FiguresPainterLibrary_.dll
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary\obj\Debug\FiguresPainterLibrary_.pdb

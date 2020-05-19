@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresPainter", "FiguresPainter\FiguresPainter.csproj", "{4ADC1427-1752-4BFF-A1D9-70B72C068299}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F} = {14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresPainterLibrary", "FiguresPainterLibrary\FiguresPainterLibrary.csproj", "{1562DD4F-48F8-4F30-B5AD-01E6519CF91C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresPainterLibrary", "FiguresPainterLibrary\FiguresPainterLibrary.csproj", "{14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +20,10 @@ Global
 		{4ADC1427-1752-4BFF-A1D9-70B72C068299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ADC1427-1752-4BFF-A1D9-70B72C068299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ADC1427-1752-4BFF-A1D9-70B72C068299}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1562DD4F-48F8-4F30-B5AD-01E6519CF91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1562DD4F-48F8-4F30-B5AD-01E6519CF91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1562DD4F-48F8-4F30-B5AD-01E6519CF91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1562DD4F-48F8-4F30-B5AD-01E6519CF91C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BE3EB8-FB65-4E1E-BE62-84C9EF23DE6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
