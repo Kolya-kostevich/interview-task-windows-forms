@@ -1,0 +1,5 @@
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\bin\Debug\FiguresPainterLibrary_.dll
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\bin\Debug\FiguresPainterLibrary_.pdb
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\obj\Debug\FiguresPainterLibrary_.csprojAssemblyReference.cache
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\obj\Debug\FiguresPainterLibrary_.dll
+D:\interview_task\interview-task-windows-forms\FiguresPainterLibrary_\obj\Debug\FiguresPainterLibrary_.pdb
